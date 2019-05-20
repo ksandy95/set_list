@@ -1,3 +1,5 @@
+
+
 <% @songs.each do |song| %>
   <section id="song-<%= song.id %>"
     <h2><%= link_to song.title, "/songs/#{song.id}" %></h2>

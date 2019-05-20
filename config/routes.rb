@@ -4,6 +4,10 @@ Rails.application.routes.draw do
   root to: 'welcome#index'
   # get '/', to: 'welcome#index', as: :welcome
 
+  resources :users, only: [:new, :create, :show]
+  get '/login', to: 'sessions#new', as: :login
+  post '/login', to: 'sessions#login'
+
   resources :songs, only: [:index, :show]
   # get '/songs', to: 'songs#index'
   # get '/songs/:id', to: 'songs#show'
