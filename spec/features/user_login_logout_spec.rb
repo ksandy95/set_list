@@ -36,4 +36,20 @@ RSpec.describe "User registration form" do
     expect(page).to have_content("Welcome, #{user.username}")
     expect(page).to have_link("Log out")
   end
+
+  it 'logged in user can log out' do
+    user = User.create(username: "funbucket13", password: "test")
+
+    visit root_path
+
+    click_on "I already have an account"
+    fill_in "Username", with: user.username
+    fill_in "Password", with: user.password
+    click_on "Log In"
+
+    click_link "Log out"
+
+    expect(current_path).to eq(songs_path)
+    expect(page).to_not have_content("Welcome, #{user.username}")
+  end
 end

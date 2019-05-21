@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create, :show]
   get '/login', to: 'sessions#new', as: :login
   post '/login', to: 'sessions#login'
+  get '/logout', to: 'sessions#logout'
 
   resources :songs, only: [:index, :show]
   # get '/songs', to: 'songs#index'
