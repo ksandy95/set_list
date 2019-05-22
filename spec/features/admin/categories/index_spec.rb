@@ -29,6 +29,7 @@ RSpec.describe "User visits categories index page" do
 
       visit admin_categories_path
 
+      expect(page.status_code).to eq(404)
       expect(page).to_not have_content("Admin Categories")
       expect(page).to have_content("The page you were looking for doesn't exist.")
     end
@@ -38,6 +39,7 @@ RSpec.describe "User visits categories index page" do
     it "does not allow visitor to see admin categories" do
       visit admin_categories_path
 
+      expect(page.status_code).to eq(404)
       expect(page).to_not have_content("Admin Categories")
       expect(page).to have_content("The page you were looking for doesn't exist.")
     end

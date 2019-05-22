@@ -5,5 +5,8 @@
     <h2><%= link_to song.title, "/songs/#{song.id}" %></h2>
     <p>Play Count: <%= song.play_count %></p>
     <p>Length: <%= song.length %></p>
+    <% if current_admin? %>
+      <%= button_to "delete", admin_song_path(song), method: :delete %>
+    <% end %>
   </section>
 <% end %>
