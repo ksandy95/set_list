@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   root to: 'welcome#index'
   # get '/', to: 'welcome#index', as: :welcome
 
+  resources :carts, only: [:create]
+  # post '/carts', to: 'carts#add_song'
+
   resources :users, only: [:new, :create, :show]
   get '/login', to: 'sessions#new', as: :login
   post '/login', to: 'sessions#login'

@@ -1,10 +1,13 @@
 class SongsController < ApplicationController
+  before_action :get_song, only: [:show, :destroy]
+  
   def index
+    # @cart = Cart.new(session[:cart])
     @songs = Song.all
   end
 
   def show
-    @song = Song.find(params[:id])
+    # @song = Song.find(params[:id])
   end
 
   def new
@@ -22,5 +25,9 @@ class SongsController < ApplicationController
 
   def song_params
     params.require(:song).permit(:title, :length, :play_count)
+  end
+
+  def get_song
+    @song = Song.find(params[:id])
   end
 end

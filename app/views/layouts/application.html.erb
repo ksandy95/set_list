@@ -17,6 +17,7 @@
         <a class="nav-link" href="/songs">Songs</a>
       </li>
     </ul>
+    <p>Cart: <%= @cart.total_count %></p>
     <% flash.each do |type, message| %>
       <p><%= message %></p>
     <% end %>
