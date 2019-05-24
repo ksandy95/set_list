@@ -1,6 +1,6 @@
 <h1>Your Cart!</h1>
 
-<% cart.songs.each do |song, quantity| %>
+<% @cart.songs.each do |song, quantity| %>
   <section id="song-<%= song.id %>">
     <%= song.title %>: <%= quantity %>
   </section>
